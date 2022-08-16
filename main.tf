@@ -12,7 +12,7 @@ provider "azurerm" {
   tenant_id       = "${var.tenantId}"
   environment     = "usgovernment"
   #version = "=1.44.0"
-  features {}
+  features { resource_group { prevent_deletion_if_contains_resources = false } }
 }
 #File =template.tf
 resource "azurerm_resource_group" "main" {
